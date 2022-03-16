@@ -14,54 +14,74 @@ export const Header = styled.header`
   justify-content: center;
 `;
 
-export const Main = styled.div`
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
+export const Main = styled.div``;
 
-  .form-group label {
-    font-size: 16px;
-    font-family: "Montserrat Semibold", sans-serif;
-    margin-bottom: 5px;
-  }
+export const Form = styled.form``;
 
-  .form-group input,
-  .form-group select {
-    background: #1a1a1a;
-    width: 100%;
-    height: 45px;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    font-family: "Montserrat", sans-serif;
-    color: white;
-    font-size: 14px;
-    padding: 0 15px;
-    outline: none;
-    transition: border-color 0.2s ease-in;
-  }
+export const FormGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 
-  .form-group input:focus,
-  .form-group select:focus {
-    border-color: #ff7373;
-  }
-
-  .form-group button {
-    background-image: linear-gradient(-90deg, #ff7373 0%, #fddb33 100%);
-    border-radius: 5px;
-    border: 0;
-    height: 45px;
-    color: #1a1a1a;
-    font-size: 16px;
-    font-family: "Montserrat Bold", sans-serif;
-    cursor: pointer;
-  }
-
-  .form-group:last-child {
+  &:last-child {
     margin-top: 40px;
   }
+`;
 
+export const Title = styled.label`
+  font-size: 16px;
+  font-family: "Poppins Semibold", sans-serif;
+  margin-bottom: 5px;
+`;
+
+export const Select = styled.select`
+  background: #1a1a1a;
+  width: 100%;
+  height: 45px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-size: 14px;
+  padding: 0 15px;
+  outline: none;
+  transition: border-color 0.2s ease-in;
+
+  &:focus {
+    border-color: #ff7373;
+  }
+`;
+
+export const Input = styled.input`
+  background: #1a1a1a;
+  width: 100%;
+  height: 45px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-size: 14px;
+  padding: 0 15px;
+  outline: none;
+  transition: border-color 0.2s ease-in;
+
+  &:focus {
+    border-color: #ff7373;
+  }
+`;
+
+export const Button = styled.button`
+  background-image: linear-gradient(-90deg, #ff7373 0%, #fddb33 100%);
+  border-radius: 5px;
+  border: 0;
+  height: 45px;
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+`;
+
+export const Result = styled.div`
   .result-container {
     margin-top: 50px;
   }
@@ -87,4 +107,6 @@ export const Main = styled.div`
   .result-content ul li strong {
     color: #ff7373;
   }
+
+  margin-bottom: 40px;
 `;
