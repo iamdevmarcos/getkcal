@@ -30,7 +30,8 @@ export const FormGroup = styled.div`
 
 export const Title = styled.label`
   font-size: 16px;
-  font-family: "Poppins Semibold", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
   margin-bottom: 5px;
 `;
 
@@ -100,7 +101,8 @@ export const Result = styled.div`
   .result-content ul li {
     font-size: 14px;
     font-weight: bold;
-    font-family: "Montserrat Bold", sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
     line-height: 30px;
   }
 
