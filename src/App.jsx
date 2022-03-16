@@ -1,9 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
+
+import { GlobalStyles } from "./styles/GlobalStyles";
+
+import Home from "./pages/Home";
 
 const App = () => {
-  useEffect(() => console.log("1"), []);
+  return (
+    <>
+      <GlobalStyles />
 
-  return <h2>test</h2>;
+      <Home />
+    </>
+  );
 };
 
 export default App;
