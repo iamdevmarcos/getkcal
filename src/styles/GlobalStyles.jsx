@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     background: #282828;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: white;
   }
 `;
