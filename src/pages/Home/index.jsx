@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Container,
@@ -28,32 +28,36 @@ const Home = () => {
 
   const [showResult, setShowResult] = useState(false);
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    console.log(maintenace);
+  }, [maintenace]);
 
-    // Taxa metabolica basal
-    setTmb(
-      Math.round(
-        gender === "female"
-          ? 655 + 9.6 * weight + 1.8 * height - 4.7 * age
-          : 66 + 13.7 * weight + 5 * height - 6.8 * age
-      )
+  const calcTmb = () => {
+    const result = Math.round(
+      gender === "female"
+        ? 655 + 9.6 * weight + 1.8 * height - 4.7 * age
+        : 66 + 13.7 * weight + 5 * height - 6.8 * age
     );
+    setTmb(result);
+  };
 
-    const maintenaceResult = Math.round(tmb * Number(activityLevel));
+  const handleButtonClick = () => {
+    if (gender !== "" && activityLevel !== "") {
+      // Taxa metabolica basal
+      calcTmb();
 
-    console.log(tmb);
+      const maintenaceResult = Math.round(tmb * parseInt(activityLevel));
 
-    setMaintenace(maintenaceResult);
-    setLoseWeight(maintenaceResult - 450);
-    setWinWeight(maintenaceResult + 450);
-
-    setGender("");
-    setAge("");
-    setWeight("");
-    setHeight("");
-    setActivityLevel("");
-    setShowResult(true);
+      console.log("main", maintenaceResult);
+      setMaintenace(maintenaceResult);
+      console.log(maintenace);
+      return;
+      setLoseWeight(maintenaceResult - 450);
+      setWinWeight(maintenaceResult + 450);
+      setShowResult(true);
+    } else {
+      alert("Preencha todos os campos!");
+    }
   };
 
   return (
@@ -64,10 +68,11 @@ const Home = () => {
 
       <Main>
         {!showResult && (
-          <Form onSubmit={handleFormSubmit}>
+          <div>
             <FormGroup>
               <Title for="gender">Seu sexo</Title>
               <Select id="gender" onChange={(e) => setGender(e.target.value)}>
+                <option value="">Selecione aqui</option>
                 <option value="male">Masculino</option>
                 <option value="female">Feminino</option>
               </Select>
@@ -111,6 +116,7 @@ const Home = () => {
                 id="activity_level"
                 onChange={(e) => setActivityLevel(e.target.value)}
               >
+                <option value=""></option>
                 <option value="1.2">Sedentário</option>
                 <option value="1.375">Pouca atividade</option>
                 <option value="1.55">Atividade moderada</option>
@@ -120,9 +126,11 @@ const Home = () => {
             </FormGroup>
 
             <FormGroup>
-              <Button type="submit">Calcular!</Button>
+              <Button type="submit" onClick={handleButtonClick}>
+                Calcular!
+              </Button>
             </FormGroup>
-          </Form>
+          </div>
         )}
 
         {showResult && (
