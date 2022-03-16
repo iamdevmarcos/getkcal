@@ -1,11 +1,14 @@
 import React from "react";
 
-import { Container } from "./styles";
+import { Container, Header } from "./styles";
+import logo from "../../images/logo.svg";
 
 const Home = () => {
   return (
     <Container>
-      <h1>Home</h1>
+      <Header>
+        <img src={logo} alt="getkcal" />
+      </Header>
     </Container>
   );
 };
