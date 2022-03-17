@@ -126,10 +126,10 @@ const Home = () => {
         )}
 
         {showResult && (
-          <Result class="result-container" id="result">
+          <Result>
             <h2>Aqui está o resultado:</h2>
 
-            <ResultContent class="result-content">
+            <ResultContent>
               <ul>
                 <li>
                   Seu metabolismo basal é de <strong>{tmb} calorias</strong>.
