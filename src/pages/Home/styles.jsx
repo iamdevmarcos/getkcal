@@ -4,6 +4,14 @@ export const Container = styled.div`
   width: 550px;
   margin: 0 auto;
   min-height: 100vh;
+
+  @media (max-width: 580px) {
+    width: 450px;
+  }
+
+  @media (max-width: 475px) {
+    width: 300px;
+  }
 `;
 
 export const Header = styled.header`
