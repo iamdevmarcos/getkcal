@@ -11,6 +11,7 @@ import {
   Input,
   Button,
   Result,
+  ResultContent,
 } from "./styles";
 import logo from "../../images/logo.svg";
 
@@ -128,7 +129,7 @@ const Home = () => {
           <Result class="result-container" id="result">
             <h2>Aqui está o resultado:</h2>
 
-            <div class="result-content">
+            <ResultContent class="result-content">
               <ul>
                 <li>
                   Seu metabolismo basal é de <strong>{tmb} calorias</strong>.
@@ -163,7 +164,7 @@ const Home = () => {
               >
                 Calcular Novamente!
               </Button>
-            </div>
+            </ResultContent>
           </Result>
         )}
       </Main>

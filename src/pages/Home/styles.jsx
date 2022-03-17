@@ -82,33 +82,28 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const Result = styled.div`
-  .result-container {
-    margin-top: 50px;
-  }
+export const Result = styled.div``;
 
-  .result-content {
-    margin-top: 10px;
-    background: #1a1a1a;
-    border-radius: 5px;
-    padding: 15px;
-  }
+export const ResultContent = styled.div`
+  margin-top: 30px;
+  background: #1a1a1a;
+  border-radius: 5px;
+  padding: 15px;
 
-  .result-content ul {
+  ul {
     list-style: none;
   }
 
-  .result-content ul li {
-    font-size: 14px;
+  ul li {
+    font-size: 18px;
     font-weight: bold;
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     line-height: 30px;
+    margin: 10px;
   }
 
-  .result-content ul li strong {
+  ul li strong {
     color: #ff7373;
   }
-
-  margin-bottom: 40px;
 `;
