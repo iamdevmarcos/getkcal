@@ -22,42 +22,33 @@ const Home = () => {
   const [activityLevel, setActivityLevel] = useState("");
 
   const [tmb, setTmb] = useState(0);
-  const [maintenace, setMaintenace] = useState(0);
-  const [loseWeight, setLoseWeight] = useState(0);
-  const [winWeight, setWinWeight] = useState(0);
 
   const [showResult, setShowResult] = useState(false);
-
-  useEffect(() => {
-    console.log(maintenace);
-  }, [maintenace]);
-
-  const calcTmb = () => {
-    const result = Math.round(
-      gender === "female"
-        ? 655 + 9.6 * weight + 1.8 * height - 4.7 * age
-        : 66 + 13.7 * weight + 5 * height - 6.8 * age
-    );
-    setTmb(result);
-  };
 
   const handleButtonClick = () => {
     if (gender !== "" && activityLevel !== "") {
       // Taxa metabolica basal
-      calcTmb();
+      setTmb(
+        Math.round(
+          gender === "female"
+            ? 655 + 9.6 * weight + 1.8 * height - 4.7 * age
+            : 66 + 13.7 * weight + 5 * height - 6.8 * age
+        )
+      );
 
-      const maintenaceResult = Math.round(tmb * parseInt(activityLevel));
-
-      console.log("main", maintenaceResult);
-      setMaintenace(maintenaceResult);
-      console.log(maintenace);
-      return;
-      setLoseWeight(maintenaceResult - 450);
-      setWinWeight(maintenaceResult + 450);
       setShowResult(true);
     } else {
       alert("Preencha todos os campos!");
     }
+  };
+
+  const handleReset = () => {
+    setGender("");
+    setAge("");
+    setWeight("");
+    setHeight("");
+    setActivityLevel("");
+    setShowResult(false);
   };
 
   return (
@@ -144,17 +135,34 @@ const Home = () => {
                 </li>
                 <li>
                   Para manter o seu peso você precisa consumir em média{" "}
-                  <strong>{maintenace} calorias</strong>.
+                  <strong>
+                    {Math.round(tmb * Number(activityLevel))} calorias
+                  </strong>
+                  .
                 </li>
                 <li>
                   Para perder peso você precisa consumir em média{" "}
-                  <strong>{loseWeight} calorias</strong>.
+                  <strong>
+                    {Math.round(tmb * Number(activityLevel)) - 450} calorias
+                  </strong>
+                  .
                 </li>
                 <li>
                   Para ganhar peso você precisa consumir em média{" "}
-                  <strong>{winWeight} calorias</strong>.
+                  <strong>
+                    {Math.round(tmb * Number(activityLevel)) + 450} calorias
+                  </strong>
+                  .
                 </li>
               </ul>
+
+              <Button
+                type="submit"
+                onClick={handleReset}
+                style={{ marginTop: 30, paddingLeft: 10, paddingRight: 10 }}
+              >
+                Calcular Novamente!
+              </Button>
             </div>
           </Result>
         )}
